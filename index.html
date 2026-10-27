@@ -234,8 +234,10 @@ footer .wrap { padding-block: 24px 40px; display: flex; flex-wrap: wrap; gap: 12
                 <label class="time"><input type="radio" name="TEMPO" id="tempo-comunidade" value="comunitaria"><b>Comunidade</b><span>Levar o assunto à igreja, à associação de moradores, à escola.</span></label>
               </div>
             </fieldset>
-            <label class="check" for="whats"><input type="checkbox" id="whats" name="WHATSAPP" value="sim"><span>Quero ser avisado(a) quando os alertas chegarem também pelo WhatsApp.</span></label>
+            <label class="check" for="whats"><input type="checkbox" id="whats" name="QUER_WHATSAPP" value="sim"><span>Quero ser avisado(a) quando os alertas chegarem também pelo WhatsApp.</span></label>
             <label class="check" for="consent"><input type="checkbox" id="consent" name="OPT_IN" value="1" required><span>Concordo em receber os alertas por e-mail. Posso cancelar a qualquer momento pelo link no fim de cada mensagem.</span></label>
+            <input type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+            <input type="hidden" name="locale" value="pt">
             <p class="error" id="err" role="alert" hidden></p>
             <button type="submit">Quero receber</button>
             <p class="fine">Usamos seus dados só para enviar os alertas e escolher as tarefas certas para você, conforme a Lei Geral de Proteção de Dados (LGPD).</p>
@@ -245,8 +247,7 @@ footer .wrap { padding-block: 24px 40px; display: flex; flex-wrap: wrap; gap: 12
           <h2>Falta só um passo</h2>
           <p>Mandamos um e-mail para <b id="done-email"></b>. Clique no link dele para confirmar. Sem a confirmação, os alertas não chegam.</p>
           <p class="fine">Não achou? Olhe na caixa de spam ou em Promoções.</p>
-          <p class="preview-note">Prévia: nada foi enviado. A ligação com o serviço de e-mail entra quando a página for publicada.</p>
-        </div>
+                  </div>
       </div>
     </div>
   </div>
@@ -349,11 +350,10 @@ footer .wrap { padding-block: 24px 40px; display: flex; flex-wrap: wrap; gap: 12
 
 <script>
 (function () {
-  // Quando o serviço de e-mail estiver pronto, o endereço do formulário dele entra aqui.
-  var FORM_ACTION = "";
+  // Endereço do formulário "Página de inscrição" no Brevo.
+  var FORM_ACTION = "https://1c83c54c.sibforms.com/serve/MUIFAC8NssmwwYj-VJ0bmJPENS28TI_uZegcCUKJU2eCsLn2bOrXWMpVqTP6lVbWbdZLkQf5NBvpkCAwsL4Vd_wXRWDkl0WP_tjeAPYqWwPAnJTA6KeTatFVbFCoPWJa-gwD09ChvI3Cwd3xDo4m9JHIZEgkKJs_w3O6RQ0cBYqJsZADOR_LV_kQXqV6Acy9f2efLtVjee_AXCxEVw==";
   var form = document.getElementById("signup");
   var err = document.getElementById("err");
-  if (FORM_ACTION) { form.action = FORM_ACTION; form.method = "POST"; }
 
   form.addEventListener("submit", function (e) {
     var email = document.getElementById("email");
@@ -369,12 +369,23 @@ footer .wrap { padding-block: 24px 40px; display: flex; flex-wrap: wrap; gap: 12
       err.textContent = "Marque a caixa de concordância para podermos mandar os alertas.";
       err.hidden = false; consent.focus(); return;
     }
-    if (FORM_ACTION) return;
     e.preventDefault();
-    document.getElementById("done-email").textContent = email.value;
+    var button = form.querySelector("button[type=submit]");
+    button.disabled = true;
+    var data = new FormData(form);
+    data.append("isAjax", "1");
+    fetch(FORM_ACTION, { method: "POST", body: data, mode: "no-cors" }).then(showDone, function () {
+      button.disabled = false;
+      err.textContent = "Não conseguimos enviar agora. Confira sua conexão e tente de novo.";
+      err.hidden = false;
+    });
+  });
+
+  function showDone() {
+    document.getElementById("done-email").textContent = document.getElementById("email").value;
     document.getElementById("form-area").hidden = true;
     document.getElementById("done").hidden = false;
-  });
+  }
 })();
 </script>
 </body>
