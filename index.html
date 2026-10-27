@@ -205,42 +205,19 @@ footer .wrap { padding-block: 24px 40px; display: flex; flex-wrap: wrap; gap: 12
       <div class="form-card" id="inscricao">
         <div id="form-area">
           <h2>Quero receber os alertas</h2>
-          <p class="sub">Leva menos de um minuto.</p>
+          <p class="sub">Só precisamos do seu e-mail.</p>
           <form id="signup" novalidate>
             <div>
               <label for="email">Seu e-mail</label>
               <input id="email" name="EMAIL" type="email" autocomplete="email" placeholder="voce@exemplo.com" required>
             </div>
-            <div class="two">
-              <div>
-                <label for="nome">Seu nome <span class="opt">(opcional)</span></label>
-                <input id="nome" name="NOME" type="text" autocomplete="given-name">
-              </div>
-              <div>
-                <label for="uf">Estado <span class="opt">(opcional)</span></label>
-                <select id="uf" name="UF">
-                  <option value="">—</option>
-                  <option>AC</option><option>AL</option><option>AP</option><option>AM</option><option>BA</option><option>CE</option><option>DF</option><option>ES</option><option>GO</option><option>MA</option><option>MT</option><option>MS</option><option>MG</option><option>PA</option><option>PB</option><option>PR</option><option>PE</option><option>PI</option><option>RJ</option><option>RN</option><option>RS</option><option>RO</option><option>RR</option><option>SC</option><option>SP</option><option>SE</option><option>TO</option>
-                </select>
-              </div>
-            </div>
-            <fieldset>
-              <legend>Quanto tempo você costuma ter por semana?</legend>
-              <p class="hint">Você pode mudar quando quiser.</p>
-              <div class="times">
-                <label class="time"><input type="radio" name="TEMPO" id="tempo-5" value="rapida" checked><b>5 minutos</b><span>Votar na enquete oficial e compartilhar uma arte pronta.</span></label>
-                <label class="time"><input type="radio" name="TEMPO" id="tempo-30" value="media"><b>30 minutos</b><span>Comentar nas redes de parlamentares que vão decidir.</span></label>
-                <label class="time"><input type="radio" name="TEMPO" id="tempo-horas" value="dedicada"><b>Algumas horas</b><span>Panfletar no seu bairro quando uma votação se aproxima.</span></label>
-                <label class="time"><input type="radio" name="TEMPO" id="tempo-comunidade" value="comunitaria"><b>Comunidade</b><span>Levar o assunto à igreja, à associação de moradores, à escola.</span></label>
-              </div>
-            </fieldset>
-            <label class="check" for="whats"><input type="checkbox" id="whats" name="QUER_WHATSAPP" value="sim"><span>Quero ser avisado(a) quando os alertas chegarem também pelo WhatsApp.</span></label>
+            <p class="hint">Cada alerta traz tarefas de vários tamanhos, de 5 minutos a algumas horas. Você escolhe a que cabe na sua semana.</p>
             <label class="check" for="consent"><input type="checkbox" id="consent" name="OPT_IN" value="1" required><span>Concordo em receber os alertas por e-mail. Posso cancelar a qualquer momento pelo link no fim de cada mensagem.</span></label>
             <input type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
             <input type="hidden" name="locale" value="pt">
             <p class="error" id="err" role="alert" hidden></p>
             <button type="submit">Quero receber</button>
-            <p class="fine">Usamos seus dados só para enviar os alertas e escolher as tarefas certas para você, conforme a Lei Geral de Proteção de Dados (LGPD).</p>
+            <p class="fine">Usamos seu e-mail só para enviar os alertas, conforme a Lei Geral de Proteção de Dados (LGPD).</p>
           </form>
         </div>
         <div id="done" class="done" hidden>
@@ -332,9 +309,8 @@ footer .wrap { padding-block: 24px 40px; display: flex; flex-wrap: wrap; gap: 12
       <div class="faq">
         <details open><summary>É de graça?</summary><p>Sim. Sempre.</p></details>
         <details><summary>O que vocês fazem com o meu e-mail?</summary><p>Usamos só para mandar os alertas. Não vendemos, não emprestamos e não passamos para ninguém. Você cancela com um clique no fim de qualquer e-mail, e pode pedir para apagarmos seus dados quando quiser.</p></details>
-        <details><summary>Por que perguntam meu estado?</summary><p>Para indicar, quando fizer sentido, os parlamentares eleitos pelo seu estado. A pressão de eleitores pesa mais. É opcional.</p></details>
         <details><summary>Quantos e-mails vou receber?</summary><p>Um por semana, na segunda. Só mandamos fora disso se algo grave entrar na pauta de repente.</p></details>
-        <details><summary>E o WhatsApp?</summary><p>Está nos planos. Marque a opção no formulário e avisamos quando estiver pronto.</p></details>
+        <details><summary>E o WhatsApp?</summary><p>Está nos planos. Quem se inscrever por e-mail vai ser avisado quando estiver pronto.</p></details>
         <details><summary>Quem está por trás disso?</summary><p>O projeto é da jornalista Carolina Unzelte, formada pela USP, com carreira internacional em alguns dos mais respeitados veículos de economia do mundo, como Financial Times, The Economist e The Observer. No Brasil, trabalhou nas redações de EXAME, Época Negócios e JOTA. Ela também cofundou a escola de artes TATO, em São Paulo.</p></details>
       </div>
     </div>
