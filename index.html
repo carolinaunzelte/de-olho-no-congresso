@@ -129,7 +129,7 @@ section.block { padding-block: 64px 0; }
 .notes p { color: var(--muted); margin-top: 4px; }
 
 /* Tarefas */
-.levels { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-top: 28px; }
+.levels { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; margin-top: 28px; }
 .level { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 18px; display: grid; gap: 8px; align-content: start; }
 .level .t { font-family: var(--mono); font-size: .8125rem; color: var(--muted); }
 .level h3 { font-size: 1.25rem; font-stretch: 82%; font-weight: 800; }
@@ -159,6 +159,7 @@ footer .wrap { padding-block: 24px 40px; display: flex; flex-wrap: wrap; gap: 12
 @media (max-width: 880px) {
   .hero-grid, .sample, .side .wrap { grid-template-columns: minmax(0, 1fr); gap: 32px; }
   .levels { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .level.special { grid-column: 1 / -1; }
   .week { grid-template-columns: minmax(0, 1fr); border-top: 0; border-left: 3px solid var(--ink); }
   .day { padding: 0 0 14px 14px; }
   .day.mon, .day.ses { border-top: 0; margin-top: 0; border-left: 6px solid; margin-left: -4.5px; }
@@ -281,6 +282,7 @@ footer .wrap { padding-block: 24px 40px; display: flex; flex-wrap: wrap; gap: 12
         <div class="level"><span class="t">30 MIN</span><h3>Média</h3><p>Comentar nas redes de parlamentares específicos, com um texto sugerido.</p><span class="when">Toda semana</span></div>
         <div class="level kept"><span class="t">ALGUMAS HORAS</span><h3>Dedicada</h3><p>Panfletar na feira, na saída da escola, no ponto de ônibus. A gente manda o material.</p><span class="when">Quando o projeto avança</span></div>
         <div class="level kept"><span class="t">COMUNIDADE</span><h3>Comunitária</h3><p>Levar o assunto a lideranças: padre, pastor, associação de moradores, sindicato.</p><span class="when">Quando o projeto avança</span></div>
+        <div class="level special"><span class="t">VARIA</span><h3>Especial</h3><p>Estratégias específicas para o tema daquele projeto ou votação, como pedir que entidades ligadas ao assunto digam publicamente de que lado estão.</p><span class="when">Quando o caso pede</span></div>
       </div>
       <p class="escalate">Só pedimos as tarefas maiores quando uma proposta ganha relator, entra na pauta ou recebe urgência. Assim o seu esforço vai para onde faz diferença.</p>
     </div>
