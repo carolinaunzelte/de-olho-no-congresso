@@ -143,6 +143,7 @@ section.block { padding-block: 64px 0; }
 .side .wrap { padding-block: 56px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; }
 .side h2 { font-size: clamp(1.75rem, 3.6vw, 2.5rem); font-weight: 900; font-stretch: 78%; line-height: 1.05; text-transform: uppercase; }
 .side p { opacity: .85; margin-top: 14px; }
+.themes-label { font-family: var(--mono); font-size: .8125rem; letter-spacing: .08em; text-transform: uppercase; color: var(--signal); margin: 0 0 4px; }
 .themes { list-style: none; padding: 0; margin: 0; display: grid; gap: 0; }
 .themes li { padding: 12px 0; border-bottom: 1px solid color-mix(in srgb, var(--paper) 25%, transparent); font-family: var(--display); font-stretch: 85%; font-size: 1.25rem; font-weight: 700; }
 
@@ -294,13 +295,17 @@ footer .wrap { padding-block: 24px 40px; display: flex; flex-wrap: wrap; gap: 12
         <h2>A gente tem lado</h2>
         <p>Não somos neutros. Defendemos os direitos humanos e o Estado democrático de direito. Cada proposta é lida por uma pessoa antes de virar alerta, e explicamos sempre o motivo do alerta para você tirar as suas conclusões.</p>
       </div>
-      <ul class="themes" aria-label="Temas que acompanhamos">
-        <li>Democracia</li>
-        <li>Direitos humanos</li>
-        <li>Direitos das mulheres</li>
-        <li>Direitos das crianças</li>
-        <li>Direitos de quem é mais vulnerável</li>
-      </ul>
+      <div>
+        <p class="themes-label">Os temas que monitoramos</p>
+        <ul class="themes">
+          <li>Direitos humanos</li>
+          <li>Direitos das mulheres</li>
+          <li>Direitos das crianças</li>
+          <li>Direitos de quem é mais vulnerável</li>
+          <li>Meio ambiente</li>
+          <li>Democracia e participação política</li>
+        </ul>
+      </div>
     </div>
   </section>
 
